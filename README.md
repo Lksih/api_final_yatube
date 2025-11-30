@@ -54,3 +54,18 @@ python manage.py runserver
 ```
 python3 manage.py runserver
 ```
+
+## Пример запроса:
+
+При GET-запросе на `api/v1/posts/` возвращаетсяя список всех публикаций в виде:
+```
+{
+  "id": 4,
+  "text": "string",
+  "author": "root",
+  "image": null,
+  "group": null,
+  "pub_date": "2025-11-30T18:00:15.252239Z"
+}
+```
+Подробнее об этом и других запросах можно узнать в документации по адресу `redoc/`
