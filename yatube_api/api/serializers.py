@@ -41,8 +41,7 @@ class FollowSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        #fields = ('user', 'following')
-        fields = '__all__'
+        fields = ('user', 'following')
         model = Follow
 
     def validate(self, data):
@@ -52,7 +51,14 @@ class FollowSerializer(serializers.ModelSerializer):
         if request and request.user.is_authenticated:
             if request.user == following:
                 raise serializers.ValidationError(
-                    "Зачем подписываться на смого себя?"
+                    "Зачем подписываться на самого себя?"
+                )
+            if Follow.objects.filter(
+                user=request.user,
+                following=following
+            ).exists():
+                raise serializers.ValidationError(
+                    "Зачем подписываться на кого-то 2 раза?"
                 )
 
         return data
