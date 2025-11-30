@@ -61,8 +61,8 @@ python3 manage.py runserver
 ```
 {
   "id": 4,
-  "text": "string",
-  "author": "root",
+  "text": "Биба",
+  "author": "Боба",
   "image": null,
   "group": null,
   "pub_date": "2025-11-30T18:00:15.252239Z"
